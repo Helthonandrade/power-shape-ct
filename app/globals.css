@@ -97,6 +97,17 @@
 @media(max-width:650px){.layer-scroll{height:150vh}.layer-visual img{height:116%}}
 @media(prefers-reduced-motion:reduce){.layer-visual img,.layer-visual figcaption{transition:none!important}}
 
+/* Subtle directional cue for the layered gallery */
+.scroll-cue{justify-self:end;display:grid;grid-template-columns:auto 14px;grid-template-rows:auto 72px auto;column-gap:13px;align-items:start;color:#969696;font:700 10px/1.2 monospace;letter-spacing:1.8px;text-transform:uppercase}
+.scroll-cue>span{grid-column:1;grid-row:1 / span 3;align-self:center;writing-mode:vertical-rl;transform:rotate(180deg)}
+.scroll-cue-line{grid-column:2;grid-row:2;position:relative;width:1px;height:72px;margin:7px auto;overflow:hidden;background:#ffffff24}
+.scroll-cue-line i{position:absolute;left:0;top:-28px;width:1px;height:28px;background:linear-gradient(180deg,transparent,var(--red),var(--orange),transparent);animation:scroll-cue-flow 2.35s cubic-bezier(.45,0,.25,1) infinite}
+.scroll-cue>b{grid-column:2;grid-row:3;justify-self:center;color:var(--red);font-size:19px;line-height:1;animation:scroll-cue-arrow 2.35s ease-in-out infinite}
+@keyframes scroll-cue-flow{0%{transform:translateY(-10px);opacity:0}18%{opacity:1}78%{opacity:1}100%{transform:translateY(110px);opacity:0}}
+@keyframes scroll-cue-arrow{0%,100%{transform:translateY(0);opacity:.55}50%{transform:translateY(5px);opacity:1}}
+@media(max-width:1000px){.scroll-cue{justify-self:start;margin-top:5px;grid-template-columns:auto 14px}.scroll-cue>span{writing-mode:initial;transform:none;grid-row:1;align-self:start;margin-top:2px}.scroll-cue-line{height:50px}.scroll-cue-line i{animation-duration:2.6s}}
+@media(prefers-reduced-motion:reduce){.scroll-cue-line i{top:22px}.scroll-cue>b{opacity:.8}}
+
 /* Persistent numbered labels, scoped only to the gallery section */
 .layer-stack{position:relative;isolation:isolate;padding-bottom:0}
 .pinned-labels{position:sticky;top:86px;z-index:100;width:100%;height:0;display:flex;flex-direction:column;overflow:visible;pointer-events:none}
