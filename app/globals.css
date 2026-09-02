@@ -41,3 +41,9 @@
 .story-photo.active{filter:none;opacity:1;transform:scale(1);box-shadow:0 35px 90px #000b}.story-photo.passed{filter:grayscale(1);opacity:.16;transform:scale(.97)}
 @media(max-width:1000px){.folder-tabs{top:72px;padding-left:0;padding-right:0;overflow-x:auto;scrollbar-width:none}.folder-tabs::-webkit-scrollbar{display:none}.folder-tabs button{min-width:145px}.story-photo,.story-photo.active,.story-photo.passed{height:64vh}}
 @media(max-width:650px){.folder-tabs{top:72px}.folder-tabs button{min-width:126px;height:52px;padding:8px 14px 8px 22px;font-size:9px}.folder-tabs button.active{height:64px}.story-gallery{gap:10vh;padding-left:0;padding-right:0}.story-photo,.story-photo.active,.story-photo.passed{width:100%;height:56vh;transform:none}.story-photo.passed{opacity:.15}}
+
+/* Slow, breath-like anniversary motion */
+.hero-stamp{animation:stampBreathe 6s cubic-bezier(.45,0,.55,1) infinite;will-change:transform,box-shadow}
+.hero-stamp:hover{transform:rotate(-3deg) scale(1.07);box-shadow:0 0 38px #b9ff3848}
+@keyframes stampBreathe{0%,100%{transform:rotate(-8deg) scale(1);box-shadow:0 0 0 #b9ff3800}50%{transform:rotate(-7deg) scale(1.028);box-shadow:0 0 22px #b9ff382d}}
+@media(max-width:650px){.hero-stamp{animation:stampBreatheMobile 6s cubic-bezier(.45,0,.55,1) infinite;background:#111d;color:#fff}.hero-stamp strong{color:var(--lime)}@keyframes stampBreatheMobile{0%,100%{transform:rotate(-8deg) scale(1);box-shadow:0 0 0 #b9ff3800}50%{transform:rotate(-7deg) scale(1.035);box-shadow:0 0 20px #b9ff3833}}}
