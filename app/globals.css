@@ -90,3 +90,9 @@
 
 @media(max-width:1000px){.layer-scroll{height:112vh}.layer-panel{height:calc(100vh - 72px)}.layer-menu{height:48px}.layer-visual{height:calc(100% - 48px)}}
 @media(max-width:650px){.layer-scroll{height:105vh}.layer-panel{height:calc(100vh - 72px)}.layer-menu{height:44px;padding:0 18px;grid-template-columns:38px 1fr}.layer-menu i{display:none}.layer-visual{height:calc(100% - 44px)}.layer-visual figcaption{padding:45px 22px}.layer-visual strong{font-size:clamp(46px,14vw,74px)}.layer-visual p{font-size:14px}.experience-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;margin-right:-20px;padding-right:20px}.experience-grid button{min-width:84vw;scroll-snap-align:center;border-right:1px solid #33000055}.experience-grid button:nth-child(1){animation:cardInvite 7s ease-in-out infinite}.experience-grid button:nth-child(2){animation:cardInvite 7s ease-in-out 2.3s infinite}.experience-grid button:nth-child(3){animation:cardInvite 7s ease-in-out 4.6s infinite}@keyframes cardInvite{0%,18%,100%{box-shadow:none}9%{box-shadow:inset 0 0 0 2px var(--lime);background:#171717}}}
+
+/* Scroll-controlled reveal inside a fixed viewport */
+.layer-scroll{height:170vh}.layer-panel{will-change:transform}.layer-visual img{height:116%;transition:filter .65s,transform .1s linear;will-change:transform}.layer-visual figcaption{transition:transform .1s linear,opacity .18s linear;will-change:transform,opacity}
+@media(max-width:1000px){.layer-scroll{height:158vh}}
+@media(max-width:650px){.layer-scroll{height:150vh}.layer-visual img{height:116%}}
+@media(prefers-reduced-motion:reduce){.layer-visual img,.layer-visual figcaption{transition:none!important}}
