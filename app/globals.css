@@ -116,3 +116,12 @@
 .layer-menu{display:none}.layer-panel{top:86px!important;height:calc(100vh - 86px)!important}.layer-visual{height:100%;transition:opacity .35s}.layer-panel:not(.active) .layer-visual{opacity:0;pointer-events:none}.layer-panel.active .layer-visual{opacity:1}
 @media(max-width:1000px){.pinned-labels{top:72px}.pinned-labels button{height:48px}.layer-panel{top:72px!important;height:calc(100vh - 72px)!important}}
 @media(max-width:650px){.pinned-labels button{height:44px;padding:0 18px;grid-template-columns:38px 1fr}.pinned-labels button b{font-size:10px}.layer-panel{top:72px!important;height:calc(100vh - 72px)!important}}
+
+/* Keep the final gallery label inside the black section */
+.gallery-section{position:relative;overflow:clip}
+
+/* Testimonial navigation placed at the carousel edges */
+.quote-viewport{position:relative;padding:16px 72px;overflow:hidden}
+.quote-side{position:absolute;z-index:5;top:50%;display:grid;place-items:center;width:54px;height:54px;padding:0;border:1px solid #5b5b5b;border-radius:50%;background:#0d0d0de8;color:#fff;font-size:24px;cursor:pointer;transform:translateY(-50%);transition:background .25s,border-color .25s,transform .25s}
+.quote-side-left{left:5px}.quote-side-right{right:5px}.quote-side:hover,.quote-side:focus-visible{background:var(--red);border-color:var(--red);transform:translateY(-50%) scale(1.08);outline:none}.quote-side:active{transform:translateY(-50%) scale(.96)}
+@media(max-width:650px){.quote-viewport{margin:0 -20px;padding:14px 52px}.quote-side{position:sticky;top:50%;width:44px;height:44px}.quote-side-left{float:left;left:4px;margin-right:-44px}.quote-side-right{float:right;right:4px;margin-left:-44px}.quote-track{grid-template-columns:1fr}.quote-track .quote:not(:first-child){display:none}}
