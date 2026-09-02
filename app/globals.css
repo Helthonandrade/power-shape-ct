@@ -96,3 +96,12 @@
 @media(max-width:1000px){.layer-scroll{height:158vh}}
 @media(max-width:650px){.layer-scroll{height:150vh}.layer-visual img{height:116%}}
 @media(prefers-reduced-motion:reduce){.layer-visual img,.layer-visual figcaption{transition:none!important}}
+
+/* Persistent numbered labels, scoped only to the gallery section */
+.layer-stack{position:relative;isolation:isolate;padding-bottom:0}
+.pinned-labels{position:sticky;top:86px;z-index:100;width:100%;height:0;display:flex;flex-direction:column;overflow:visible;pointer-events:none}
+.pinned-labels button{pointer-events:auto;width:100%;height:52px;flex:none;padding:0 6vw;border:0;border-bottom:1px solid #5c0000;background:#a91e1b;color:#f3c4c1;display:grid;grid-template-columns:70px 1fr;align-items:center;text-align:left;text-transform:uppercase;cursor:pointer;box-shadow:0 6px 18px #0008;transition:background .3s,color .3s}
+.pinned-labels button span{font:700 10px monospace;color:#ffaea7}.pinned-labels button b{font-size:14px;letter-spacing:.05em}.pinned-labels button.active{background:var(--red);color:#fff}.pinned-labels button.active span{color:#300}
+.layer-menu{display:none}.layer-panel{top:86px!important;height:calc(100vh - 86px)!important}.layer-visual{height:100%;transition:opacity .35s}.layer-panel:not(.active) .layer-visual{opacity:0;pointer-events:none}.layer-panel.active .layer-visual{opacity:1}
+@media(max-width:1000px){.pinned-labels{top:72px}.pinned-labels button{height:48px}.layer-panel{top:72px!important;height:calc(100vh - 72px)!important}}
+@media(max-width:650px){.pinned-labels button{height:44px;padding:0 18px;grid-template-columns:38px 1fr}.pinned-labels button b{font-size:10px}.layer-panel{top:72px!important;height:calc(100vh - 72px)!important}}
