@@ -120,8 +120,11 @@
 /* Keep the final gallery label inside the black section */
 .gallery-section{position:relative;overflow:clip}
 
-/* Testimonial navigation placed at the carousel edges */
-.quote-viewport{position:relative;padding:16px 72px;overflow:hidden}
-.quote-side{position:absolute;z-index:5;top:50%;display:grid;place-items:center;width:54px;height:54px;padding:0;border:1px solid #5b5b5b;border-radius:50%;background:#0d0d0de8;color:#fff;font-size:24px;cursor:pointer;transform:translateY(-50%);transition:background .25s,border-color .25s,transform .25s}
-.quote-side-left{left:5px}.quote-side-right{right:5px}.quote-side:hover,.quote-side:focus-visible{background:var(--red);border-color:var(--red);transform:translateY(-50%) scale(1.08);outline:none}.quote-side:active{transform:translateY(-50%) scale(.96)}
-@media(max-width:650px){.quote-viewport{margin:0 -20px;padding:14px 52px}.quote-side{position:sticky;top:50%;width:44px;height:44px}.quote-side-left{float:left;left:4px;margin-right:-44px}.quote-side-right{float:right;right:4px;margin-left:-44px}.quote-track{grid-template-columns:1fr}.quote-track .quote:not(:first-child){display:none}}
+/* Testimonial navigation with dedicated breathing room */
+.quote-viewport{display:grid;grid-template-columns:54px minmax(0,1fr) 54px;gap:clamp(14px,2vw,28px);align-items:center;padding:16px 0;overflow:visible}.quote-track{grid-column:2;min-width:0}
+.quote-side{position:static;z-index:5;display:grid;place-items:center;width:54px;height:54px;padding:0;border:1px solid #5b5b5b;border-radius:50%;background:#0d0d0d;color:#fff;font-size:24px;cursor:pointer;transition:background .25s,border-color .25s,transform .25s}.quote-side-left{grid-column:1;grid-row:1}.quote-side-right{grid-column:3;grid-row:1}.quote-side:hover,.quote-side:focus-visible{background:var(--red);border-color:var(--red);transform:scale(1.08);outline:none}.quote-side:active{transform:scale(.96)}
+@media(max-width:650px){.quote-viewport{grid-template-columns:44px minmax(0,1fr) 44px;gap:10px;margin:0;padding:14px 0}.quote-side{width:44px;height:44px}.quote-track{grid-template-columns:1fr}.quote-track .quote:not(:first-child){display:none}}
+
+/* Reliable responsive crop and faster modal imagery */
+.prof-photo,.sheet-photo{position:relative;background:#242424}.prof-photo img,.sheet-photo img{position:absolute;display:block;max-width:none}
+@media(max-width:650px){.modal{overflow-y:auto;-webkit-overflow-scrolling:touch}.prof-photo{width:100%;height:auto;aspect-ratio:1/1}.sheet-photo{height:auto;aspect-ratio:16/10}.prof-photo img,.sheet-photo img{inset:0}}
