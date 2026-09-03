@@ -128,3 +128,7 @@
 /* Reliable responsive crop and faster modal imagery */
 .prof-photo,.sheet-photo{position:relative;background:#242424}.prof-photo img,.sheet-photo img{position:absolute;display:block;max-width:none}
 @media(max-width:650px){.modal{overflow-y:auto;-webkit-overflow-scrolling:touch}.prof-photo{width:100%;height:auto;aspect-ratio:1/1}.sheet-photo{height:auto;aspect-ratio:16/10}.prof-photo img,.sheet-photo img{inset:0}}
+
+/* Mobile finishing: clean guidance, vivid map and stable gallery frames */
+.location iframe{filter:none}
+@media(max-width:650px){.testimonials .prototype-note{display:none}.layer-panel{will-change:auto;backface-visibility:hidden;contain:paint}.layer-visual img{height:100%;transform:none!important;transition:filter .5s ease!important;will-change:auto}.layer-visual figcaption{backface-visibility:hidden}}
