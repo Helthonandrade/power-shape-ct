@@ -3,8 +3,22 @@
 import { useState } from 'react';
 import styles from './page.module.css';
 
-const faqItems = [
-  { question: 'Onde fica a Power Shape CT?', answer: 'A Power Shape CT fica na Rua do Ouro, 918, no bairro Serra, em Belo Horizonte — MG, CEP 30220-000. Você pode abrir a localização pelo mapa do site e traçar a melhor rota até a academia.' },
+type TransitLine = { number: string; route: string; directions: string };
+type FaqItem = { question: string; answer: string; routeLink?: boolean; transitLines?: TransitLine[] };
+
+const googleRouteUrl = 'https://www.google.com/maps/dir/?api=1&destination=Power%20Shape%20CT%2C%20Rua%20do%20Ouro%2C%20918%2C%20Serra%2C%20Belo%20Horizonte%20-%20MG';
+const googleTransitUrl = googleRouteUrl + '&travelmode=transit';
+
+const faqItems: FaqItem[] = [
+  { question: 'Onde fica a Power Shape CT?', answer: 'A Power Shape CT fica na Rua do Ouro, 918, no bairro Serra, em Belo Horizonte — MG, CEP 30220-000. Abra a rota abaixo: o Google Maps usa a sua localização como ponto de partida e calcula o melhor caminho até a academia.', routeLink: true },
+  { question: 'Quais ônibus passam perto da academia?', answer: 'Os pontos mais próximos ficam na Rua Palmira, 657, e na Rua do Ouro, 1014 — cerca de 1 a 2 minutos a pé da esquina da academia. Para chegar, procure o sentido Serra ou Rua do Ouro. Na volta, embarque no sentido do bairro ou corredor indicado. As principais opções são:', transitLines: [
+    { number: '2102', route: 'Gameleira ↔ Serra', directions: 'Oeste, Prado, Barro Preto, Centro, Afonso Pena e Savassi.' },
+    { number: '2151', route: 'Vista Alegre ↔ Serra', directions: 'Vista Alegre, Nova Suíça, Av. Amazonas, Centro e Savassi.' },
+    { number: '4107', route: 'Alto Caiçara ↔ Serra', directions: 'Alto Caiçara, Pedro II, Centro, Afonso Pena e Savassi.' },
+    { number: '8150', route: 'União ↔ Serra', directions: 'União, Floresta, área hospitalar e Serra.' },
+    { number: '102', route: 'N. Sra. de Fátima ↔ Hospital Evangélico', directions: 'Aglomerado da Serra, Av. Cardoso, Rua do Ouro e área hospitalar.' },
+    { number: '107', route: 'Vila Marçola ↔ Rua do Ouro', directions: 'Linha local circular entre Vila Marçola, Rua Palmira e Rua do Ouro.' },
+  ] },
   { question: 'Qual é o horário de funcionamento?', answer: 'A academia funciona de segunda a sexta, das 5h às 22h; aos sábados, das 8h às 15h; e aos domingos, das 9h às 12h. Em feriados, consulte a equipe para confirmar o horário especial.' },
   { question: 'Como agendo uma avaliação?', answer: 'Acesse “Já sou aluno” no site, escolha “Avaliação” e selecione o melhor dia e horário no painel de agendamento. Se precisar de ajuda, fale diretamente com a equipe pelo WhatsApp.' },
   { question: 'Quais aulas coletivas posso agendar?', answer: 'O site apresenta as agendas de Power Bike, Power Move e Power Dance. Escolha a modalidade na área “Já sou aluno” para consultar os horários disponíveis e reservar sua aula.' },
@@ -62,7 +76,15 @@ export default function FaqPage() {
             <button onClick={() => setOpenItem(isOpen ? null : index)} aria-expanded={isOpen} aria-controls={`faq-answer-${index}`}>
               <span>{String(index + 1).padStart(2, '0')}</span><strong>{item.question}</strong><i aria-hidden="true">{isOpen ? '−' : '+'}</i>
             </button>
-            <div id={`faq-answer-${index}`} className={styles.answer} hidden={!isOpen}><p>{item.answer}</p></div>
+            <div id={`faq-answer-${index}`} className={styles.answer} hidden={!isOpen}>
+              <p>{item.answer}</p>
+              {item.routeLink && <a className={styles.routeButton} href={googleRouteUrl} target="_blank" rel="noreferrer">Traçar rota da minha localização ↗</a>}
+              {item.transitLines && <>
+                <div className={styles.transitGrid}>{item.transitLines.map(line => <div key={line.number}><b>{line.number}</b><span><strong>{line.route}</strong><small>{line.directions}</small></span></div>)}</div>
+                <p className={styles.transitNote}>Na ida, escolha o veículo no sentido <b>Serra/Rua do Ouro</b>. Na volta, confira no letreiro o destino desejado. Horários e desvios podem mudar; confirme a viagem antes de sair.</p>
+                <div className={styles.answerLinks}><a href={googleTransitUrl} target="_blank" rel="noreferrer">Planejar viagem de ônibus ↗</a><a href="https://prefeitura.pbh.gov.br/sumob/onibus/horarios-e-itinerarios" target="_blank" rel="noreferrer">Consultar horários oficiais ↗</a></div>
+              </>}
+            </div>
           </article>;
         })}
       </div>
@@ -72,6 +94,6 @@ export default function FaqPage() {
       <p>PRONTO PARA COMEÇAR?</p><h2>Menos dúvida.<br/><i>Mais movimento.</i></h2>
       <div><a href="/#aluno">Agendar uma avaliação ↗</a><a href="https://wa.me/553192155412" target="_blank" rel="noreferrer">Falar no WhatsApp ↗</a></div>
     </section>
-    <footer className={styles.footer}><img src="/logo-power-shape.png" alt="Power Shape CT"/><p>R. do Ouro, 918 · Serra · Belo Horizonte — MG</p><a href="/">VOLTAR AO SITE ↑</a></footer>
+    <footer className={styles.footer}><img src="/logo-power-shape.png" alt="Power Shape CT"/><p>R. do Ouro, 918 · Serra · Belo Horizonte — MG</p><a href="/">VOLTAR AO SITE ↑</a><small>Esse site foi desenvolvido pela <a href="https://www.baita.site" target="_blank" rel="noreferrer">BAITA — www.baita.site</a></small></footer>
   </main>;
 }
