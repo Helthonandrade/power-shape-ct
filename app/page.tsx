@@ -18,7 +18,7 @@ const testimonials=[
   {name:'Carlos Henrique',goal:'Mobilidade e saúde',position:'t6',text:'Encontrei um treino que respeita meu momento e ao mesmo tempo me desafia. Minha disposição melhorou e a academia virou parte da minha rotina.'},
 ];
 const galleryItems=[
-  ['/estrutura-premium.jpg','Estrutura que inspira','Imagem conceitual de uma academia premium com arquitetura inspiradora'],
+  ['/estrutura-artistica-v2.jpg','Estrutura que inspira','Imagem conceitual artística da estrutura de uma academia premium'],
   ['/equipamentos-premium.jpg','Equipamentos de ponta','Imagem conceitual de equipamentos profissionais em uma academia premium'],
   ['/novo-ritmo-premium.jpg','Seu novo ritmo','Imagem conceitual de pessoas em movimento em uma academia acolhedora'],
   ['/liberdade-premium.jpg','Treine com liberdade','Imagem conceitual de um espaço de treino amplo, versátil e iluminado'],
