@@ -3,10 +3,10 @@ import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Power Shape CT | Academia no Serra, Belo Horizonte',
-  description: 'Treine na Power Shape CT, academia no bairro Serra em Belo Horizonte. Equipamentos modernos, professores qualificados e treinos personalizados.',
+  description: 'Treine na Power Shape CT, academia no bairro Serra em Belo Horizonte. Equipamentos modernos, professores qualificados, Power Bike, Power Move, Power Dance e treinos personalizados.',
   openGraph: {
     title: 'Power Shape CT | Seu corpo pede potência',
-    description: 'Academia no bairro Serra, em Belo Horizonte, com estrutura moderna e acompanhamento profissional.',
+    description: 'Academia no bairro Serra, em Belo Horizonte, com estrutura moderna, acompanhamento profissional e aulas coletivas.',
     images: [{ url: '/og.png', width: 1734, height: 899, alt: 'Power Shape CT — Seu corpo pede potência.' }],
     locale: 'pt_BR',
     type: 'website',
